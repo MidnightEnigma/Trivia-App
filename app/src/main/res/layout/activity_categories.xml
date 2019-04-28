@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/categories"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/cat4"
+        android:layout_width="423dp"
+        android:layout_height="99dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="Computer Science :)"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="372dp" />
+
+    <Button
+        android:id="@+id/cat5"
+        android:layout_width="423dp"
+        android:layout_height="99dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="Mythology"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="471dp" />
+
+    <Button
+        android:id="@+id/cat3"
+        android:layout_width="423dp"
+        android:layout_height="99dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="Video Games"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="273dp" />
+
+    <Button
+        android:id="@+id/cat2"
+        android:layout_width="431dp"
+        android:layout_height="93dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="Musical and Theatres"
+        tools:layout_editor_absoluteX="-8dp"
+        tools:layout_editor_absoluteY="180dp" />
+
+    <Button
+        android:id="@+id/cat1"
+        android:layout_width="423dp"
+        android:layout_height="99dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="General Knowledge"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="74dp" />
+
+    <Button
+        android:id="@+id/cat6"
+        android:layout_width="423dp"
+        android:layout_height="99dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="Japanese Manga & Anime"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="577dp" />
+
+    <TextView
+        android:id="@+id/categories"
+        android:layout_width="334dp"
+        android:layout_height="39dp"
+        android:gravity="center"
+        android:text="Categories"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="16dp" />
+</android.support.constraint.ConstraintLayout>

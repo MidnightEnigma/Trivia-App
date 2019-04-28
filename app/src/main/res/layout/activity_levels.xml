@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/levels"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <Button
+        android:id="@+id/hard"
+        android:layout_width="250dp"
+        android:layout_height="133dp"
+        android:layout_weight="1"
+        android:text="Hard"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="474dp" />
+
+    <Button
+        android:id="@+id/medium"
+        android:layout_width="251dp"
+        android:layout_height="131dp"
+        android:layout_weight="1"
+        android:text="Medium"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="335dp" />
+
+    <Button
+        android:id="@+id/easy"
+        android:layout_width="252dp"
+        android:layout_height="127dp"
+        android:layout_weight="1"
+        android:text="Easy"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="199dp" />
+
+    <TextView
+        android:id="@+id/levels"
+        android:layout_width="301dp"
+        android:layout_height="93dp"
+        android:gravity="center"
+        android:text="Levels"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="53dp"
+        tools:layout_editor_absoluteY="38dp" />
+
+</android.support.constraint.ConstraintLayout>

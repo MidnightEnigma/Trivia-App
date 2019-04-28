@@ -13,27 +13,20 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     TextView txt;
     Button single;
-    Button multi;
-    Button bonus;
     private static final String TAG = "Meme";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        single = (Button) findViewById(R.id.button);
+        single = (Button) findViewById(R.id.single);
         single.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //startActivity(new Intent(MainActivity.this, directions.xml.class ));
+                Intent one = new Intent(MainActivity.this, Directions.class);
+                String only = null;
+                one.putExtra("single", only);
+                startActivity(one);
             }
         });
-
     }
-    public boolean gameStart() {
-        return false;
-    }
-    public void sendMessage(View view) {
-
-    }
-
 }

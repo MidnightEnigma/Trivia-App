@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="402dp"
+        android:layout_height="118dp"
+        android:text="Directions: Answer each of the questions before time runs out! The faster you answer them, the higher your score becomes. "
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="4dp"
+        tools:layout_editor_absoluteY="231dp" />
+
+    <Button
+        android:id="@+id/starting"
+        android:layout_width="440dp"
+        android:layout_height="62dp"
+        android:gravity="center"
+        android:text="Start"
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="483dp" />
+
+</android.support.constraint.ConstraintLayout>

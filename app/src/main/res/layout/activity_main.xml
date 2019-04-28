@@ -31,32 +31,14 @@
         app:layout_constraintGuide_end="579dp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/single"
         android:layout_width="417dp"
         android:layout_height="85dp"
         android:background="@color/colorPrimary"
-        android:text="Single Player"
+        android:text="Start Game"
         android:textAppearance="@style/TextAppearance.AppCompat.Button"
         android:visibility="visible"
-        tools:layout_editor_absoluteX="-6dp"
-        tools:layout_editor_absoluteY="283dp" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="411dp"
-        android:layout_height="91dp"
-        android:background="@color/colorPrimary"
-        android:text="MultiPlayer"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="370dp" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="410dp"
-        android:layout_height="86dp"
-        android:background="@color/colorPrimary"
-        android:text="Bonus Mode"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="463dp" />
+        tools:layout_editor_absoluteY="525dp" />
 
 </android.support.constraint.ConstraintLayout>
