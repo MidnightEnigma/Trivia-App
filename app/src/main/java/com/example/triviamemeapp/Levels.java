@@ -10,6 +10,7 @@ public class Levels extends AppCompatActivity {
     private Button easy;
     private Button medium;
     private Button hard;
+    private static String difficulty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,22 +20,31 @@ public class Levels extends AppCompatActivity {
         easy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View V) {
-                startActivity(new Intent(Levels.this, Questions.class));
+                Intent ez = new Intent(Levels.this, Questions.class);
+                difficulty = "easy";
+                startActivity(ez);
             }
         });
         medium = (Button) findViewById(R.id.medium);
         medium.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View V) {
-                startActivity(new Intent(Levels.this, Questions.class));
+                Intent medium = new Intent(Levels.this, Questions.class);
+                difficulty = "medium";
+                startActivity(medium);
             }
         });
         hard = (Button) findViewById(R.id.hard);
         hard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View V) {
-                startActivity(new Intent(Levels.this, Questions.class));
+                Intent hard = new Intent(Levels.this, Questions.class);
+                difficulty = "hard";
+                startActivity(hard);
             }
         });
+    }
+    public static String getDifficulty() {
+        return difficulty;
     }
 }

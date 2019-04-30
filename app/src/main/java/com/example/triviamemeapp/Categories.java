@@ -13,6 +13,7 @@ public class Categories extends AppCompatActivity {
     private Button computer;
     private Button myth;
     private Button anime;
+    private static String category;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,43 +22,58 @@ public class Categories extends AppCompatActivity {
         general.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Categories.this, Levels.class));
+                Intent general = new Intent(Categories.this, Levels.class);
+                category = "general";
+                startActivity(general);
             }
         });
         music = (Button) findViewById(R.id.cat2);
         music.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Categories.this, Levels.class));
+                Intent music = new Intent(Categories.this, Levels.class);
+                category = "music";
+                startActivity(music);
             }
         });
         video = (Button) findViewById(R.id.cat3);
         video.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Categories.this, Levels.class));
+                Intent video = new Intent(Categories.this, Levels.class);
+                category = "video";
+                startActivity(video);
             }
         });
         computer = (Button) findViewById(R.id.cat4);
         computer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Categories.this, Levels.class));
+                Intent comp = new Intent(Categories.this, Levels.class);
+                category = "computer";
+                startActivity(comp);
             }
         });
         myth = (Button) findViewById(R.id.cat5);
         myth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Categories.this, Levels.class));
+                Intent mythos = new Intent(Categories.this, Levels.class);
+                category = "mythos";
+                startActivity(mythos);
             }
         });
         anime = (Button) findViewById(R.id.cat6);
         anime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Categories.this, Levels.class));
+                Intent weeb = new Intent(Categories.this, Levels.class);
+                category = "weebweebweeb";
+                startActivity(weeb);
             }
         });
+    }
+    public static String getCategory() {
+        return category;
     }
 }

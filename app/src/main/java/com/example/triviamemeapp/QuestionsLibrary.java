@@ -7,8 +7,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
+
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.net.sip.SipSession;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
@@ -39,90 +42,6 @@ import com.google.gson.JsonElement;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
-/**
- * This is the API for easy questions for general knowledge;
- */
-
-//import;
-
-/**
- * This is the API for medium questions for general knowledge;
- */
-//import;
-
-/**
- * This is the API for hard questions for general knowledge;
- */
-//import;
-
-/**
- * This is the API for easy questions for Musicals and Theatres;
- */
-//import;
-
-/**
- * This is the API for medium questions for Musicals and Theatres;
- */
-//import;
-
-/**
- * This is the API for hard questions for Musicals and Theatres;
- */
-//import;
-
-/**
- * This is the API for easy questions for Video Games;
- */
-//import;
-
-/**
- * This is the API for medium questions for Video Games;
- */
-//import;
-
-/**
- * This is the API for hard questions for Video Games;
- */
-//import;
-
-/**
- * This is the API for easy questions for Computer Science;
- */
-//import;
-
-/**
- * This is the API for medium questions for Computer Science;
- */
-//import;
-
-/**
- * This is the API for hard questions for Computer Science;
- */
-//import;
-
-/**
- * This is the API for easy questions for Mythology;
- */
-//import;
-
-/**
- * This is the API for medium questions for Mythology;
- */
-//import;
-
-/**
- * This is the API for hard questions for Mythology;
- */
-//import;
-
-/**
- * This is the API for easy questions for Japanese Anime and Manga:
- */
-//import;
-
-/**
- * This is the API for medium questions for Japanese Anime and Manga:
- */
 //import;import android.os.AsyncTask;
 
 import org.json.JSONArray;
@@ -136,41 +55,98 @@ import java.util.Queue;
  */
 public class QuestionsLibrary {
     private static final String TAG = "triviagame";
-    private static String URL = "";
-    private static String category;
-    private static String type;
-    private static String difficult;
-    private static String question;
-    private static String correct;
-    private static String[] answers = new String[4];
-    private void jsonParse() {
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, URL,
-                new Response.Listener<JSONObject>() {
+//    RequestQueue queue = Volley.newRequestQueue(this);
+    private static String URL;
+    private static String[] incorrectAnswers;
+    private static List<String> shuffledAnswers = new ArrayList<>();
+    private static List<String> quest = new ArrayList<>();
+    private static List<String> trueans = new ArrayList<>();
+    private static List<List<String>> falso = new ArrayList<List<String>>();
+    private static List<String> finalSet = new ArrayList<>();
+    private static int a = Questions.getQuestionNumber();
+
+
+    private static void setURL(String cat, String lvl) {
+        if (cat.equals("general") && lvl.equals("easy")) {
+            URL = "https://opentdb.com/api.php?amount=50&category=9&difficulty=easy&type=multiple";
+        }
+        if (cat.equals("general") && lvl.equals("medium")) {
+            URL = "https://opentdb.com/api.php?amount=50&category=9&difficulty=medium&type=multiple";
+        }
+        if (cat.equals("general") && lvl.equals("hard")) {
+            URL = "https://opentdb.com/api.php?amount=41&category=9&difficulty=hard&type=multiple";
+        }
+        if (cat.equals("music") && lvl.equals("easy")) {
+            URL = "https://opentdb.com/api.php?amount=5&category=13&difficulty=easy&type=multiple";
+        }
+        if (cat.equals("music") && lvl.equals("medium")) {
+            URL = "https://opentdb.com/api.php?amount=9&category=13&difficulty=medium&type=multiple";
+        }
+        if (cat.equals("music") && lvl.equals("hard")) {
+            URL = "https://opentdb.com/api.php?amount=7&category=13&difficulty=hard&type=multiple";
+        }
+        if (cat.equals("video") && lvl.equals("easy")) {
+            URL = "https://opentdb.com/api.php?amount=50&category=15&difficulty=easy&type=multiple";
+        }
+        if (cat.equals("video") && lvl.equals("medium")) {
+            URL = "https://opentdb.com/api.php?amount=50&category=15&difficulty=medium&type=multiple";
+        }
+        if (cat.equals("video") && lvl.equals("hard")) {
+            URL = "https://opentdb.com/api.php?amount=50&category=15&difficulty=hard&type=multiple";
+        }
+        if (cat.equals("computer") && lvl.equals("easy")) {
+            URL = "https://opentdb.com/api.php?amount=29&category=18&difficulty=easy&type=multiple";
+        }
+        if (cat.equals("computer") && lvl.equals("medium")) {
+            URL = "https://opentdb.com/api.php?amount=49&category=18&difficulty=medium&type=multiple";
+        }
+        if (cat.equals("computer") && lvl.equals("hard")) {
+            URL = "https://opentdb.com/api.php?amount=22&category=18&difficulty=hard&type=multiple";
+        }
+        if (cat.equals("mythos") && lvl.equals("easy")) {
+            URL = "https://opentdb.com/api.php?amount=12&category=20&difficulty=easy&type=multiple";
+        }
+        if (cat.equals("mythos") && lvl.equals("medium")) {
+            URL = "https://opentdb.com/api.php?amount=14&category=20&difficulty=medium&type=multiple";
+        }
+        if (cat.equals("mythos") && lvl.equals("hard")) {
+            URL = "https://opentdb.com/api.php?amount=8&category=20&difficulty=hard&type=multiple";
+        }
+        if (cat.equals("weebweebweeb") && lvl.equals("easy")) {
+            URL = "https://opentdb.com/api.php?amount=37&category=31&difficulty=easy&type=multiple";
+        }
+        if (cat.equals("weebweebweeb") && lvl.equals("medium")) {
+            URL = "https://opentdb.com/api.php?amount=50&category=31&difficulty=medium&type=multiple";
+        }
+        if (cat.equals("weebweebweeb") && lvl.equals("hard")) {
+            URL = "https://opentdb.com/api.php?amount=31&category=31&difficulty=hard&type=multiple";
+        }
+    }
+
+
+    public static void jsonParse(String subject, String level) {
+        setURL(subject, level);
+       // RequestQueue queue = Volley.newRequestQueue(this);
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL,
+                new Response.Listener<String>() {
                     @Override
-                    public void onResponse(String json) {
+                    public void onResponse(String response) {
                         try {
                             JsonParser parser = new JsonParser();
-                            JsonObject result = parser.parse(json).getAsJsonObject();
+                            JsonObject result = parser.parse(response).getAsJsonObject();
                             JsonArray questions = result.getAsJsonArray("results");
                             for (JsonElement questionElement : questions) {
                                 JsonObject elementAsObject = questionElement.getAsJsonObject();
-                                String category = elementAsObject.get("category").getAsString();
-                                String type = elementAsObject.get("type").getAsString();
-                                String difficult = elementAsObject.get("difficulty").getAsString();
-                                String question = elementAsObject.get("question").getAsString();
-                                String correct = elementAsObject.get("correct_answer").getAsString();
+                                quest.add(elementAsObject.get("question").getAsString());
+                                trueans.add(elementAsObject.get("correct_answer").getAsString());
                                 JsonArray incorrect = elementAsObject.get("incorrect_answers").getAsJsonArray();
-                                String[] incorrectAnswers = new String[incorrect.size()];
+                                incorrectAnswers = new String[incorrect.size()];
+                                List<String> storage = new ArrayList<>();
                                 for (int i = 0; i < incorrect.size(); i++) {
-                                    String wrong = incorrect.get(i).getAsString();
-                                    incorrectAnswers[i] = wrong;
+                                    storage.add(incorrectAnswers[i]);
                                 }
-                                /*
-                                 * need to create a question method in the Question java file.
-                                 */
-                                //Question finalQuestion = new Question(category, type, difficult, question, correct, incorrectAnswers);
-                               // this.questions.add(finalQuestion);
-                               // Log.d(TAG, "parseJSON: " + finalQuestion);
+                                falso.add(storage);
+
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -182,28 +158,55 @@ public class QuestionsLibrary {
                 error.printStackTrace();
             }
         });
-        Queue.add(request);
+       // queue.add(stringRequest);
     }
-    public String getQuestion(String a) {
-        return question;
+
+    public static String getQuestion(int a) {
+        return quest.get(a);
     }
-    public void getAnswers(String[] one, String two) {
-        answers[0] = two;
-        answers[1] = one[0];
-        answers[2] = one[1];
-        answers[3] = one[2];
+
+    public static String getCorrectAnswer(int a) {
+        return trueans.get(a);
     }
-    public static void main(String args[]) {
-        shuffleArray(answers);
+    public static void setAnswers(int a, List<List<String>> falso , List<String> trueans) {
+        finalSet.add(trueans.get(a));
+        finalSet.add(falso.get(a).get(0));
+        finalSet.add(falso.get(a).get(1));
+        finalSet.add(falso.get(a).get(2));
     }
-    private static void shuffleArray(String[] dummy) {
-        Random rnd = ThreadLocalRandom.current();
-        for (int i = dummy.length - 1; i > 0; i--) {
-            int index = rnd.nextInt(i + 1);
-            String a = dummy[index];
-            dummy[index] = dummy[i];
-            dummy[i] = a;
-        }
+
+    public static List<String> getShuffledAnswers(List<String> finalSet) {
+        shuffledAnswers = shuffleList(finalSet);
+        return shuffledAnswers;
     }
-    public String getQuestions;
+
+    private static List<String> shuffleList(List<String> dummy) {
+        Collections.shuffle(dummy);
+        return dummy;
+    }
+
+    public static String getChoiceOne() {
+        String choiceOne = shuffledAnswers.get(0);
+        return choiceOne;
+    }
+    public static String getChoiceTwo() {
+        String choiceTwo = shuffledAnswers.get(1);
+        return choiceTwo;
+    }
+    public static String getChoiceThree() {
+        String choiceThree = shuffledAnswers.get(2);
+        return choiceThree;
+    }
+    public static String getChoiceFour() {
+        String choiceFour = shuffledAnswers.get(3);
+        return choiceFour;
+    }
+
+    public static List<String> getTrueans() {
+        return trueans;
+    }
+
+    public static List<List<String>> getFalso() {
+        return falso;
+    }
 }
