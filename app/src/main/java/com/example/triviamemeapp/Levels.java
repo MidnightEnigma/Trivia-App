@@ -20,27 +20,24 @@ public class Levels extends AppCompatActivity {
         easy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View V) {
-                Intent ez = new Intent(Levels.this, Questions.class);
                 difficulty = "easy";
-                startActivity(ez);
+                startActivity( new Intent(Levels.this, Questions.class));
             }
         });
         medium = (Button) findViewById(R.id.medium);
         medium.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View V) {
-                Intent medium = new Intent(Levels.this, Questions.class);
                 difficulty = "medium";
-                startActivity(medium);
+                startActivity( new Intent(Levels.this, Questions.class));
             }
         });
         hard = (Button) findViewById(R.id.hard);
         hard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View V) {
-                Intent hard = new Intent(Levels.this, Questions.class);
                 difficulty = "hard";
-                startActivity(hard);
+                startActivity( new Intent(Levels.this, Questions.class));
             }
         });
     }

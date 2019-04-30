@@ -4,43 +4,20 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.ImageRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.net.Uri;
-import android.net.sip.SipSession;
-import android.os.AsyncTask;
-import android.util.Log;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
-import java.lang.ref.WeakReference;
-import java.net.HttpURLConnection;
-import java.util.HashMap;
-import java.util.Map;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonElement;
 import java.util.*;
-import java.util.concurrent.ThreadLocalRandom;
 
 //import;import android.os.AsyncTask;
 
@@ -55,7 +32,6 @@ import java.util.Queue;
  */
 public class QuestionsLibrary {
     private static final String TAG = "triviagame";
-//    RequestQueue queue = Volley.newRequestQueue(this);
     private static String URL;
     private static String[] incorrectAnswers;
     private static List<String> shuffledAnswers = new ArrayList<>();
@@ -64,6 +40,7 @@ public class QuestionsLibrary {
     private static List<List<String>> falso = new ArrayList<List<String>>();
     private static List<String> finalSet = new ArrayList<>();
     private static int a = Questions.getQuestionNumber();
+    private static RequestQueue queue = Questions.getQueue();
 
 
     private static void setURL(String cat, String lvl) {
@@ -123,10 +100,8 @@ public class QuestionsLibrary {
         }
     }
 
-
     public static void jsonParse(String subject, String level) {
         setURL(subject, level);
-       // RequestQueue queue = Volley.newRequestQueue(this);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL,
                 new Response.Listener<String>() {
                     @Override
@@ -158,7 +133,7 @@ public class QuestionsLibrary {
                 error.printStackTrace();
             }
         });
-       // queue.add(stringRequest);
+       queue.add(stringRequest);
     }
 
     public static String getQuestion(int a) {
@@ -208,5 +183,9 @@ public class QuestionsLibrary {
 
     public static List<List<String>> getFalso() {
         return falso;
+    }
+
+    public static List<String> getQuestionsList() {
+        return quest;
     }
 }

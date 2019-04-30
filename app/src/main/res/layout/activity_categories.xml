@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/categories"
     android:layout_width="match_parent"
@@ -9,51 +10,59 @@
         android:id="@+id/cat4"
         android:layout_width="423dp"
         android:layout_height="99dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="Computer Science :)"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="372dp" />
+        android:text="@string/computer_science"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cat5"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp" />
 
     <Button
         android:id="@+id/cat5"
-        android:layout_width="423dp"
-        android:layout_height="99dp"
+        android:layout_width="418dp"
+        android:layout_height="96dp"
+        android:layout_marginTop="8dp"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="Mythology"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="471dp" />
+        android:text="@string/mythology"
+        app:layout_constraintTop_toBottomOf="@+id/cat3"
+        tools:layout_editor_absoluteX="0dp" />
 
     <Button
         android:id="@+id/cat3"
         android:layout_width="423dp"
         android:layout_height="99dp"
+        android:layout_marginTop="8dp"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="Video Games"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="273dp" />
+        android:text="@string/video_games"
+        app:layout_constraintTop_toBottomOf="@+id/cat2"
+        tools:layout_editor_absoluteX="0dp" />
 
     <Button
         android:id="@+id/cat2"
         android:layout_width="431dp"
         android:layout_height="93dp"
+        android:layout_marginTop="8dp"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="Musical and Theatres"
-        tools:layout_editor_absoluteX="-8dp"
-        tools:layout_editor_absoluteY="180dp" />
+        android:text="@string/musical_and_theatres"
+        app:layout_constraintTop_toBottomOf="@+id/cat1"
+        tools:layout_editor_absoluteX="-8dp" />
 
     <Button
         android:id="@+id/cat1"
         android:layout_width="423dp"
         android:layout_height="99dp"
+        android:layout_marginTop="16dp"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="General Knowledge"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="74dp" />
+        android:text="@string/general_knowledge"
+        app:layout_constraintTop_toBottomOf="@+id/cat6"
+        tools:layout_editor_absoluteX="0dp" />
 
     <Button
         android:id="@+id/cat6"
@@ -61,17 +70,31 @@
         android:layout_height="99dp"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="Japanese Manga & Anime"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="577dp" />
+        android:text="@string/japanese_manga_anime"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="85dp" />
 
     <TextView
         android:id="@+id/categories"
         android:layout_width="334dp"
         android:layout_height="39dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:gravity="center"
-        android:text="Categories"
+        android:text="@string/categories"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="38dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintBottom_toTopOf="@+id/cat6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.285" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="175dp"
+        tools:layout_editor_absoluteY="604dp" />
 </android.support.constraint.ConstraintLayout>
